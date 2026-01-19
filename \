@@ -1,0 +1,119 @@
+[33mcommit 86e81fdca852dc0a7169bf5e56a7ee7badf9fe05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: varun5291-art <varunhirapara5291@gmail.com>
+Date:   Mon Jan 19 17:26:20 2026 +0000
+
+    my second code mum
+
+[1mdiff --git a/demo b/demo[m
+[1mindex a87c0bd..bbd8725 100644[m
+[1m--- a/demo[m
+[1m+++ b/demo[m
+[36m@@ -1,106 +1 @@[m
+[31m-P13--[m
+[31m-[m
+[31m- MainActivity.kt[m
+[31m-  [m
+[31m-package com.example.proo13[m
+[31m-[m
+[31m-[m
+[31m-import android.Manifest[m
+[31m-import android.content.pm.PackageManager[m
+[31m-import android.os.Build[m
+[31m-import android.os.Bundle[m
+[31m-import android.os.Environment[m
+[31m-import android.widget.Button[m
+[31m-import android.widget.TextView[m
+[31m-import android.widget.Toast[m
+[31m-import androidx.appcompat.app.AppCompatActivity[m
+[31m-import java.io.BufferedReader[m
+[31m-import java.io.File[m
+[31m-import java.io.FileReader[m
+[31m-[m
+[31m-class MainActivity : AppCompatActivity() {[m
+[31m-[m
+[31m-    private lateinit var tvContent: TextView[m
+[31m-    private val fileName = "myfile.txt"[m
+[31m-[m
+[31m-    override fun onCreate(savedInstanceState: Bundle?) {[m
+[31m-        super.onCreate(savedInstanceState)[m
+[31m-        setContentView(R.layout.activity_main)[m
+[31m-[m
+[31m-        tvContent = findViewById(R.id.tvContent)[m
+[31m-        val btnRead = findViewById<Button>(R.id.btnReadFile)[m
+[31m-[m
+[31m-        btnRead.setOnClickListener {[m
+[31m-            if (checkPermission()) {[m
+[31m-                readFile()[m
+[31m-            }[m
+[31m-        }[m
+[31m-    }[m
+[31m-[m
+[31m-    private fun checkPermission(): Boolean {[m
+[31m-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {[m
+[31m-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)[m
+[31m-                != PackageManager.PERMISSION_GRANTED) {[m
+[31m-[m
+[31m-                requestPermissions([m
+[31m-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),[m
+[31m-                    100[m
+[31m-                )[m
+[31m-                false[m
+[31m-            } else true[m
+[31m-        } else true[m
+[31m-    }[m
+[31m-[m
+[31m-    private fun readFile() {[m
+[31m-        try {[m
+[31m-            val path = Environment.getExternalStorageDirectory().absolutePath[m
+[31m-            val file = File(path + "/" + fileName)[m
+[31m-[m
+[31m-            if (!file.exists()) {[m
+[31m-                tvContent.text = "File not found: $fileName"[m
+[31m-                return[m
+[31m-            }[m
+[31m-[m
+[31m-            val reader = BufferedReader(FileReader(file))[m
+[31m-            val stringBuilder = StringBuilder()[m
+[31m-            var line: String?[m
+[31m-[m
+[31m-            do {[m
+[31m-                line = reader.readLine()[m
+[31m-                if (line != null) {[m
+[31m-                    stringBuilder.append(line).append("\n")[m
+[31m-                }[m
+[31m-            } while (line != null)[m
+[31m-[m
+[31m-            reader.close()[m
+[31m-            tvContent.text = stringBuilder.toString()[m
+[31m-[m
+[31m-        } catch (e: Exception) {[m
+[31m-            tvContent.text = "Error: ${e.message}"[m
+[31m-        }[m
+[31m-    }[m
+[31m-}[m
+[31m-[m
+[31m-[m
+[31m-activity_main.xml[m
+[31m-[m
+[31m-<?xml version="1.0" encoding="utf-8"?>[m
+[31m-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"[m
+[31m-    android:layout_width="match_parent"[m
+[31m-    android:layout_height="match_parent"[m
+[31m-    android:orientation="vertical"[m
+[31m-    android:padding="16dp">[m
+[31m-[m
+[31m-    <Button[m
+[31m-        android:id="@+id/btnReadFile"[m
+[31m-        android:layout_width="match_parent"[m
+[31m-        android:layout_height="wrap_content"[m
+[31m-        android:text="Read File from SD Card"/>[m
+[31m-[m
+[31m-    <TextView[m
+[31m-        android:id="@+id/tvContent"[m
+[31m-        android:layout_width="match_parent"[m
+[31m-        android:layout_height="wrap_content"[m
+[31m-        android:layout_marginTop="16dp"[m
+[31m-        android:textSize="16sp"/>[m
+[31m-</LinearLayout>[m
+[32m+[m[32mit is ok[m[41m [m
+\ No newline at end of file[m
